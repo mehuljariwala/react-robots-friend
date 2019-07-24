@@ -1,10 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./Containers/App/App.js";
-import * as serviceWorker from "./serviceWorker";
+
+//router
+import { Provider } from "react-redux";
+import { HashRouter } from "react-router-dom";
+//Reducer
+import { searchRobots } from "./Store/reducers/searchRobots";
+import { requestRobots } from "./Store/reducers/requestRobots";
+
+//external packages
+import { logger } from "redux-logger";
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import tunkMiddleware from "redux-thunk";
+//css generater
 import "tachyons";
-ReactDOM.render(<App />, document.getElementById("root"));
+
+//app work offline
+import * as serviceWorker from "./serviceWorker";
+
+import Home from "./Containers/Home/Home";
+
+const rootReducer = combineReducers({
+  searchRobots,
+  requestRobots
+});
+// const logger = createLogger;
+const store = createStore(rootReducer, applyMiddleware(tunkMiddleware, logger));
+ReactDOM.render(
+  <Provider store={store}>
+    <HashRouter>
+      <Home />
+    </HashRouter>
+  </Provider>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

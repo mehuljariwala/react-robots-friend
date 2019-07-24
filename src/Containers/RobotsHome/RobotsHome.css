@@ -6,8 +6,20 @@
   font-weight: normal;
   src: local("SEGA LOGO FONT"), url("SEGA.woff") format("woff");
 }
-h1 {
+.heading1 {
   font-family: "SEGA LOGO FONT";
   font-weight: 200;
   color: #0ccac4;
+}
+.robo-image {
+  height: auto;
+  width: 13%;
+  position: absolute;
+  right: 0;
+  top: -5%;
+  bottom: 0;
+}
+
+.robo-home {
+  position: relative;
 }
