@@ -15,7 +15,7 @@ class Routes extends React.Component {
     );
     return (
       <Switch>
-        <Route exact path="/" component={AsyncMainComponent} />
+        <Route exact path="/" component={AsyncRobotsComponent} />
         <Route exact path="/home" component={AsyncMainComponent} />
         <Route path="/robots" component={AsyncRobotsComponent} />
         <Route path="/intro" component={AsyncIntroduction} />
